@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Services | SupracoreX</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #050a19;
+            color: white;
+        }
+
+        /* NAV */
+        .navbar {
+            padding: 30px 60px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 60px;
+            text-align: center;
+        }
+
+        .section h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            opacity: 0.7;
+            margin-bottom: 50px;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* CARD */
+        .card {
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* ICON */
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        /* TITLE */
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        /* TEXT */
+        .card p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* CTA */
+        .cta {
+            margin-top: 60px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            background: white;
+            color: black;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .section {
+                padding: 40px 20px;
+            }
+
+            .section h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">SupracoreX</div>
+
+    <div class="section">
+        <h1>Our Services</h1>
+        <p>We build powerful digital experiences</p>
+
+        <div class="grid">
+
+            <!-- SERVICE 1 -->
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h2>Website Design</h2>
+                <p>Modern, responsive and high-converting website designs tailored for your business.</p>
+            </div>
+
+            <!-- SERVICE 2 -->
+            <div class="card">
+                <div class="icon">🚀</div>
+                <h2>Startup Websites</h2>
+                <p>Launch-ready websites designed to attract users and grow your startup fast.</p>
+            </div>
+
+            <!-- SERVICE 3 -->
+            <div class="card">
+                <div class="icon">🤖</div>
+                <h2>AI Integration</h2>
+                <p>Smart automation and AI features to make your website more powerful and unique.</p>
+            </div>
+
+            <!-- SERVICE 4 -->
+            <div class="card">
+                <div class="icon">📱</div>
+                <h2>Mobile Optimization</h2>
+                <p>Seamless experience across all devices with perfect mobile responsiveness.</p>
+            </div>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="cta">
+            <a href="/contact" class="btn">Start Your Project</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

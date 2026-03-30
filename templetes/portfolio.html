@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio | SupracoreX</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #050a19;
+            color: white;
+        }
+
+        /* NAV */
+        .navbar {
+            padding: 30px 60px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 60px 60px;
+            text-align: center;
+        }
+
+        .section h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            opacity: 0.7;
+            margin-bottom: 40px;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* CARD */
+        .card {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* IMAGE */
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        /* OVERLAY */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 10, 25, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        /* TEXT */
+        .overlay h3 {
+            margin-bottom: 10px;
+        }
+
+        .overlay p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* HOVER EFFECT */
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card:hover .overlay {
+            opacity: 1;
+        }
+
+        /* BUTTON */
+        .btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .section {
+                padding: 40px 20px;
+            }
+
+            .section h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">SupracoreX</div>
+
+    <div class="section">
+        <h1>Our Work</h1>
+        <p>Designs that convert and impress</p>
+
+        <div class="grid">
+
+            <!-- PROJECT 1 -->
+            <div class="card">
+                <img src="https://i.pinimg.com/1200x/59/61/38/596138beb239ada8aab67dbb4e288be7.jpg">
+                <div class="overlay">
+                    <h3>Startup Website</h3>
+                    <p>Modern landing page design</p>
+                    <a href="#" class="btn">View</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 2 -->
+            <div class="card">
+                <img src="https://i.pinimg.com/1200x/81/59/e0/8159e00bf1b72ec93bce8e002d9edc72.jpg">
+                <div class="overlay">
+                    <h3>Business Site</h3>
+                    <p>Professional UI/UX</p>
+                    <a href="#" class="btn">View</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 3 -->
+            <div class="card">
+                <img src="https://i.pinimg.com/1200x/b1/58/82/b158825b403e97a91f9704e8091d5ef3.jpg">
+                <div class="overlay">
+                    <h3>Portfolio Design</h3>
+                    <p>Clean and minimal layout</p>
+                    <a href="#" class="btn">View</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 4 -->
+            <div class="card">
+                <img src="https://i.pinimg.com/1200x/59/61/38/596138beb239ada8aab67dbb4e288be7.jpg">
+                <div class="overlay">
+                    <h3>AI Tool UI</h3>
+                    <p>Futuristic interface</p>
+                    <a href="#" class="btn">View</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

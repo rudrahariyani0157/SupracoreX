@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SupracoreX</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: absolute;
+            top: 50px;
+            /* increased top spacing */
+            width: 100%;
+            display: flex;
+            align-items: right;
+            justify-content: right;
+            z-index: 10;
+            font-size: 30px;
+        }
+
+        /* LOGO LEFT */
+        .logo {
+            position: absolute;
+            left: 60px;
+            color: white;
+            font-size: 40px;
+            /* bigger logo */
+            font-weight: 600;
+            letter-spacing: 1px;
+            top: 0px;
+        }
+
+        /* NAV CENTER */
+        .nav {
+            display: flex;
+            gap: 50px;
+            /* more spacing */
+            list-style: none;
+        }
+
+        /* NAV LINKS */
+        .nav-link {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            /* bigger text */
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        /* HOVER */
+        .nav-link:hover {
+            opacity: 1;
+        }
+
+        /* UNDERLINE EFFECT */
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 1.5px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh;
+            background: url("https://i.pinimg.com/1200x/b1/58/82/b158825b403e97a91f9704e8091d5ef3.jpg") no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* https://i.pinimg.com/1200x/59/61/38/596138beb239ada8aab67dbb4e288be7.jpg */
+        /* https://i.pinimg.com/1200x/81/59/e0/8159e00bf1b72ec93bce8e002d9edc72.jpg */
+        /* https://i.pinimg.com/1200x/b1/58/82/b158825b403e97a91f9704e8091d5ef3.jpg */
+        /* OVERLAY */
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 10, 25, 0.65);
+            top: 0;
+            left: 0;
+        }
+
+
+
+        /* CONTENT */
+        .content {
+            position: relative;
+            color: white;
+            max-width: 500px;
+            margin-left: 120px;
+        }
+
+        .content h1 {
+            font-size: 64px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            font-size: 18px;
+            /* slightly bigger */
+            opacity: 0.85;
+            margin-bottom: 40px;
+        }
+
+        /* BUTTON */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 15px;
+            background: white;
+            color: black;
+
+            transition: all 0.3s ease;
+            /* important */
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+
+            /* NAVBAR */
+            .navbar {
+                top: 20px;
+                padding: 0 20px;
+                justify-content: center;
+            }
+
+            .logo {
+                position: static;
+                font-size: 20px;
+                margin-bottom: 10px;
+                text-align: center;
+                width: 100%;
+            }
+
+            .nav {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                font-size: 14px;
+            }
+
+            /* HERO */
+            .content {
+                margin-left: 20px;
+                margin-right: 20px;
+                max-width: 100%;
+            }
+
+            .content h1 {
+                font-size: 36px;
+                /* smaller heading */
+            }
+
+            .content p {
+                font-size: 14px;
+                margin-bottom: 25px;
+            }
+
+            /* BUTTON */
+            .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            /* CENTER ALIGN FOR MOBILE */
+            .hero {
+                align-items: center;
+            }
+
+            .content {
+                text-align: left;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+
+        <div class="logo">SupracoreX</div>
+
+        <ul class="nav">
+            <li><a class="nav-link" href="{% url 'getyourwebsite' %}">Get Your Website</a></li>
+            <li><a class="nav-link" href="{% url 'pricing' %}">Pricing</a></li>
+            <li><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+            <li><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a class="nav-link" href="{% url 'portfolio' %}">Portfolio</a></li>
+            <li><a class="nav-link" href="{% url 'service' %}">Services</a></li>
+            <li><a class="nav-link" href="{% url 'workedwith' %}">Worked With</a></li>
+            <li><a class="nav-link" href=""></a></li>
+        </ul>
+
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="content">
+            <h1>SupracoreX</h1>
+            <p>Selenex, Selenix, Seleno, Selenis, Selenor, SelenAI, NexSelene, Selenyx, Selenova, Selentra, Selenorix,
+                Selenexis, Selenox, Selenyx Prime</p>
+
+            <a href="{% url 'getyourwebsite' %}" class="btn">Get Your Website</a>
+
+        </div>
+    </section>
+    <section>
+        <!-- potfolio -->
+    </section>
+    <section>
+
+    </section>
+
+</body>
+
+</html>

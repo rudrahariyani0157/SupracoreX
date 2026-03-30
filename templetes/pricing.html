@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pricing | SupracoreX</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #050a19;
+            color: white;
+        }
+
+        /* NAV */
+        .navbar {
+            padding: 30px 60px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        /* SECTION */
+        .section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .section h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            opacity: 0.7;
+            margin-bottom: 50px;
+        }
+
+        /* CARDS */
+        .pricing {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 280px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* TITLE */
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        /* PRICE */
+        .price {
+            font-size: 32px;
+            margin: 20px 0;
+        }
+
+        /* FEATURES */
+        .features {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        /* BUTTON */
+        .btn {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            border-radius: 30px;
+            text-decoration: none;
+            background: white;
+            color: black;
+        }
+
+        /* HIGHLIGHT */
+        .popular {
+            background: rgba(255, 255, 255, 0.08);
+            transform: scale(1.05);
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .section h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">SupracoreX</div>
+
+    <div class="section">
+        <h1>Pricing</h1>
+        <p>Choose your perfect website plan</p>
+
+        <div class="pricing">
+
+            <!-- BASIC -->
+            <div class="card">
+                <h2>Basic</h2>
+                <div class="price">₹3,999</div>
+
+                <ul class="features">
+                    <li>✔ 1 Page Website</li>
+                    <li>✔ Modern Design</li>
+                    <li>✔ Mobile Responsive</li>
+                    <li>✔ Delivery in 3 Days</li>
+                </ul>
+
+                <a href="/getyourwebsite" class="btn">Get Started</a>
+            </div>
+
+            <!-- STANDARD -->
+            <div class="card">
+                <h2>Standard</h2>
+                <div class="price">₹9,999</div>
+
+                <ul class="features">
+                    <li>✔ 5 Page Website</li>
+                    <li>✔ Premium Design</li>
+                    <li>✔ Fast Performance</li>
+                    <li>✔ Basic SEO</li>
+                </ul>
+
+                <a href="/getyourwebsite" class="btn">Get Started</a>
+            </div>
+
+            <!-- PREMIUM -->
+            <div class="card">
+                <h2>Premium</h2>
+                <div class="price">₹19,999</div>
+
+                <ul class="features">
+                    <li>✔ Full Website</li>
+                    <li>✔ Custom UI/UX</li>
+                    <li>✔ AI Integration</li>
+                    <li>✔ Priority Support</li>
+                </ul>
+
+                <a href="/getyourwebsite" class="btn">Get Started</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

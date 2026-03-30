@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact | SupracoreX</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: url("https://i.pinimg.com/1200x/81/59/e0/8159e00bf1b72ec93bce8e002d9edc72.jpg") no-repeat center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* OVERLAY */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 10, 25, 0.75);
+            top: 0;
+            left: 0;
+        }
+
+        /* CONTAINER */
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+            z-index: 2;
+        }
+
+        /* TITLE */
+        .container h1 {
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 50px;
+        }
+
+        /* BIG BUTTONS */
+        .contact-btn {
+            display: block;
+            width: 320px;
+            margin: 20px auto;
+            padding: 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        /* EMAIL */
+        .email {
+            background: white;
+            color: black;
+        }
+
+        /* INSTAGRAM */
+        .instagram {
+            border: 2px solid white;
+            color: white;
+        }
+
+        /* HOVER EFFECT */
+        .contact-btn:hover {
+            transform: scale(1.08);
+        }
+
+        /* MOBILE */
+        @media(max-width:480px) {
+            .contact-btn {
+                width: 90%;
+                padding: 18px;
+                font-size: 16px;
+            }
+
+            .container h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Let’s build something powerful together</p>
+
+        <!-- EMAIL BUTTON -->
+        <a href="mailto:youremail@gmail.com?subject=Website Inquiry&body=Hi SupracoreX, I want to build..."
+            class="contact-btn email">
+            📩 Email Us
+        </a>
+
+        <!-- INSTAGRAM BUTTON -->
+        <a href="https://instagram.com/yourusername" target="_blank" class="contact-btn instagram">
+            📷 Instagram
+        </a>
+    </div>
+
+</body>
+
+</html>
+
+
+
+<!-- 5. Dashboard (Advanced 🔥) Store user requests Show client submissions Admin panel (you control leads) about us worked with -->
+
+<!-- Dashboard,  worked with -->

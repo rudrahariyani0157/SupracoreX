@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Worked With | SupracoreX</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #050a19;
+            color: white;
+        }
+
+        /* NAV */
+        .navbar {
+            padding: 30px 60px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 60px;
+            text-align: center;
+        }
+
+        .section h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            opacity: 0.7;
+            margin-bottom: 50px;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        /* CARD */
+        .card {
+            padding: 40px 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        /* HOVER */
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* BRAND NAME */
+        .card h2 {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .section {
+                padding: 40px 20px;
+            }
+
+            .section h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">Velora</div>
+
+    <div class="section">
+        <h1>Worked With</h1>
+        <p>Brands and startups we’ve collaborated with</p>
+
+        <div class="grid">
+
+            <div class="card">
+                <h2>StartupX</h2>
+            </div>
+            <div class="card">
+                <h2>NovaTech</h2>
+            </div>
+            <div class="card">
+                <h2>Brandify</h2>
+            </div>
+            <div class="card">
+                <h2>CodeCraft</h2>
+            </div>
+            <div class="card">
+                <h2>PixelWorks</h2>
+            </div>
+            <div class="card">
+                <h2>NextGen Labs</h2>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>About | SupracoreX</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #050a19;
+            color: white;
+        }
+
+        /* NAV */
+        .navbar {
+            padding: 30px 60px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 80px 60px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* TITLE */
+        .section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        /* TEXT */
+        .section p {
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.85;
+            margin-bottom: 20px;
+        }
+
+        /* HIGHLIGHT */
+        .highlight {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* STATS */
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h2 {
+            font-size: 32px;
+        }
+
+        .stat p {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* CTA */
+        .cta {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            background: white;
+            color: black;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            .section {
+                padding: 40px 20px;
+            }
+
+            .section h1 {
+                font-size: 32px;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">SupracoreX</div>
+
+    <div class="section">
+        <h1>About SupracoreX</h1>
+
+        <p>
+            SupracoreX is a modern web design studio focused on creating
+            <span class="highlight">high-converting and visually powerful websites</span>
+            for startups, creators, and businesses.
+        </p>
+
+        <p>
+            We don’t just design websites — we build digital experiences that help
+            businesses attract customers, grow faster, and stand out in a crowded market.
+        </p>
+
+        <p>
+            By combining <span class="highlight">design, AI, and smart strategy</span>,
+            SupracoreX delivers websites that are not only beautiful but also effective.
+        </p>
+
+        <!-- STATS -->
+        <div class="stats">
+            <div class="stat">
+                <h2>10+</h2>
+                <p>Projects Designed</p>
+            </div>
+
+            <div class="stat">
+                <h2>5+</h2>
+                <p>Happy Clients</p>
+            </div>
+
+            <div class="stat">
+                <h2>100%</h2>
+                <p>Modern Design Focus</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta">
+            <a href="/contact" class="btn">Work With Us</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
