@@ -1,14 +1,24 @@
 from django.shortcuts import render, redirect
+from home.models import getyourwebsitedata
+from home.models import getyourwebsitedata
+from django.shortcuts import render
 
 def home(request):
-    return render(request, 'home.html')
+    data = getyourwebsitedata.objects.all()
+    print(data)   # 👈 prints in terminal
+    return render(request, 'home.html', {"data": data})
 
 def getyourwebsite(request):
     if request.method == "POST":
-        get_gmail_id = request.POST.get("get_gmail_id")
-        analysis_email = request.POST.get("analysis_email")
-        app_password = request.POST.get("app_password")
-        mail_type = request.POST.get("mail_type")
+        name = request.POST.get("name")
+        print(name)
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        budget_range = request.POST.get("budget")
+        description = request.POST.get("project")
+
+        data = getyourwebsitedata(name=name, email=email, phone=phone, budget_range=budget_range, description=description)
+        data.save()
 
         # if find_data(get_gmail_id) == True:
         #     return render(request, "userexist.html")
