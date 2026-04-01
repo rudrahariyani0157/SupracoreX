@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-3v8zng=%-zhprsr61i(z)wz!(o9*5xog@$2!pkm)egsyj+uj!9
 DEBUG = False
 
 <<<<<<< HEAD
-ALLOWED_HOSTS = ['.onrender.com']     
+# ALLOWED_HOSTS = ['.onrender.com']     
 =======
 ALLOWED_HOSTS = ['.onrender.com', '127.0.0.1']
 >>>>>>> 2f6b0e8 (update project)
@@ -100,6 +100,7 @@ DATABASES = {
         os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3")
     )
 }
+
 
 
 
