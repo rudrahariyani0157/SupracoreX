@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing | SupracoreX</title>
 
     <style>
@@ -103,9 +104,37 @@
         }
 
         /* MOBILE */
-        @media(max-width:768px) {
+        @media(max-width: 768px) {
+            .navbar {
+                padding: 20px;
+                text-align: center;
+                font-size: 24px;
+            }
+
+            .section {
+                padding: 40px 15px;
+            }
+
             .section h1 {
                 font-size: 32px;
+            }
+
+            .section p {
+                margin-bottom: 30px;
+            }
+
+            .pricing {
+                gap: 20px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 320px;
+                padding: 25px;
+            }
+            
+            .popular {
+                transform: scale(1);
             }
         }
     </style>

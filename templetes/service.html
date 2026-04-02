@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | SupracoreX</title>
 
     <style>
@@ -93,13 +94,34 @@
         }
 
         /* MOBILE */
-        @media(max-width:768px) {
+        @media(max-width: 768px) {
+            .navbar {
+                padding: 20px;
+                text-align: center;
+                font-size: 24px;
+            }
+
             .section {
-                padding: 40px 20px;
+                padding: 40px 15px;
             }
 
             .section h1 {
-                font-size: 32px;
+                font-size: 36px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .card {
+                padding: 25px;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            
+            .cta {
+                margin-top: 40px;
             }
         }
     </style>
@@ -147,7 +169,7 @@
 
         <!-- CTA -->
         <div class="cta">
-            <a href="/contact" class="btn">Start Your Project</a>
+            <a href="/getyourwebsite" class="btn">Start Your Project</a>
         </div>
     </div>
 

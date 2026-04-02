@@ -19,6 +19,7 @@ def getyourwebsite(request):
 
         data = getyourwebsitedata(name=name, email=email, phone=phone, budget_range=budget_range, description=description)
         data.save()
+        return redirect("aftersubmit")
 
         # if find_data(get_gmail_id) == True:
         #     return render(request, "userexist.html")
@@ -50,3 +51,5 @@ def service(request):
     return render(request, 'service.html')
 def workedwith(request):
     return render(request, 'workedwith.html')
+def aftersubmit(request):
+    return render(request, 'aftersubmit.html')

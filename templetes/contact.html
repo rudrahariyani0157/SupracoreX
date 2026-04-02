@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | SupracoreX</title>
 
     <style>
@@ -85,15 +86,27 @@
         }
 
         /* MOBILE */
-        @media(max-width:480px) {
-            .contact-btn {
-                width: 90%;
-                padding: 18px;
-                font-size: 16px;
+        @media(max-width: 480px) {
+            body {
+                padding: 20px;
             }
 
             .container h1 {
-                font-size: 32px;
+                font-size: 36px;
+                margin-bottom: 5px;
+            }
+
+            .container p {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+
+            .contact-btn {
+                width: 100%;
+                max-width: 320px;
+                padding: 18px;
+                font-size: 16px;
+                margin: 15px auto;
             }
         }
     </style>
