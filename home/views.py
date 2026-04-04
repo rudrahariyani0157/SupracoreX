@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from home.models import getyourwebsitedata
 from home.models import getyourwebsitedata
 from django.shortcuts import render
+from django.db import models
 
 def home(request):
     data = getyourwebsitedata.objects.all()
@@ -58,7 +59,15 @@ def workedwith(request):
 def aftersubmit(request):
     return render(request, 'aftersubmit.html')
 
+def dashbord(request):
 
+    data = models.objects.all()
+    for user in data:
+        userdata = (user.name, user.number, user.email)
+    context = {
+        "userdata" : userdata,
+    }
+    return request(render, "dashbord.html", context)
 #######################################################
 #######################################################
 #######################################################
