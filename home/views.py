@@ -2,12 +2,11 @@ from django.shortcuts import render, redirect
 from home.models import getyourwebsitedata
 from home.models import getyourwebsitedata
 from django.shortcuts import render
-from django.db import models
 
 def home(request):
     data = getyourwebsitedata.objects.all()
-    print(data)   # 👈 prints in terminal
-    return render(request, 'home.html', {"data": data})
+    # print(data)   # 👈 prints in terminal
+    return render(request, 'home.html')
 
 def getyourwebsite(request):
     if request.method == "POST":
@@ -61,9 +60,9 @@ def aftersubmit(request):
 
 def dashbord(request):
 
-    data = models.objects.all()
+    data = getyourwebsitedata.objects.all()
     for user in data:
-        userdata = (user.name, user.number, user.email)
+        userdata = (user.name, user.phone, user.email)
     context = {
         "userdata" : userdata,
     }
