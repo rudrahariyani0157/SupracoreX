@@ -12,4 +12,15 @@ urlpatterns = [
     path('pricing/', views.pricing, name='pricing'),
     path('service/', views.service, name='service'),
     path('workedwith/', views.workedwith, name='workedwith'),
+
+    path('automotive/', views.automotive),
+    path('business/', views.business),
+    path('ecommerce/', views.ecommerce),
+    path('education/', views.education),
+    path('gym/', views.gym),
+    path('healthcare/', views.healthcare),
+    path('portfolio_example/', views.portfolio_example),
+    path('realestate/', views.realestate),
+    path('restaurant/', views.restaurant),
+    path('saas/', views.saas),
 ]

@@ -45,11 +45,51 @@ def contact(request):
 
 def portfolio(request):
     return render(request, 'portfolio.html')
+
 def pricing(request):
     return render(request, 'pricing.html')
+
 def service(request):
     return render(request, 'service.html')
+
 def workedwith(request):
     return render(request, 'workedwith.html')
+
 def aftersubmit(request):
     return render(request, 'aftersubmit.html')
+
+
+#######################################################
+#######################################################
+#######################################################
+
+
+def automotive(request):
+    return render(request, 'examples/automotive.html')
+
+def business(request):
+    return render(request, 'examples/business.html')
+
+def ecommerce(request):
+    return render(request, 'examples/ecommerce.html')
+
+def education(request):
+    return render(request, 'examples/education.html')
+
+def gym(request):
+    return render(request, 'examples/gym.html')
+
+def healthcare(request):
+    return render(request, 'examples/healthcare.html')
+
+def portfolio_example(request):
+    return render(request, 'examples/portfolio_example.html')
+
+def realestate(request):
+    return render(request, 'examples/realestate.html')
+
+def restaurant(request):
+    return render(request, 'examples/restaurant.html')
+
+def saas(request):
+    return render(request, 'examples/saas.html')

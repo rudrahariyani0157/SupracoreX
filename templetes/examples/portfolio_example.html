@@ -1,0 +1,521 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XENON | Fullstack Developer & Creative Technologist</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-deep: #050505;
+            --bg-card: #0f0f0f;
+            --neon-blue: #00f2ff;
+            --neon-purple: #9d00ff;
+            --neon-pink: #ff00c8;
+            --text-main: #f0f0f0;
+            --text-dim: #a0a0a0;
+            --transition: cubic-bezier(0.19, 1, 0.22, 1);
+            --gradient: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none; /* Custom Cursor */
+        }
+        
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, .accent-font {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Custom Cursor */
+        #cursor {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--neon-blue);
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--neon-blue);
+            letter-spacing: 3px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-purple);
+            text-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #555);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-tagline {
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+            font-weight: 400;
+            margin-bottom: 40px;
+            letter-spacing: 5px;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 10%;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            transform: rotate(-90deg);
+            transform-origin: left;
+            color: var(--text-dim);
+        }
+
+        /* Skills Section */
+        .section {
+            padding: 150px 10%;
+        }
+
+        .section-header {
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 4rem;
+            opacity: 0.1;
+            position: absolute;
+            top: -40px;
+            left: -20px;
+            z-index: -1;
+            width: 100%;
+        }
+
+        .section-header h3 {
+            font-size: 2rem;
+            color: var(--neon-pink);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+        }
+
+        .skill-box {
+            border-left: 2px solid var(--neon-blue);
+            padding: 20px;
+            background: var(--bg-card);
+            transition: var(--transition);
+        }
+
+        .skill-box:hover {
+            background: var(--neon-blue);
+            color: var(--bg-deep);
+            transform: translateX(10px);
+        }
+
+        .skill-box h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Creative Projects Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            grid-column: span 6;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .project-card:nth-child(even) {
+            margin-top: 150px;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            background: #111;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            position: absolute;
+            bottom: -40px;
+            right: -20px;
+            background: var(--bg-deep);
+            padding: 30px;
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            max-width: 80%;
+        }
+
+        .project-info h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--neon-blue);
+        }
+
+        .project-tags {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 2px;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(157, 0, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .contact h2 {
+            font-size: 5rem;
+            margin-bottom: 50px;
+        }
+
+        .contact-btn {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--white);
+            text-decoration: none;
+            padding: 20px 50px;
+            border: 2px solid var(--neon-blue);
+            position: relative;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .contact-btn:hover {
+            background: var(--neon-blue);
+            color: var(--bg-deep);
+            box-shadow: 0 0 50px var(--neon-blue);
+        }
+
+        /* Footer */
+        footer {
+            padding: 100px 10% 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #111;
+        }
+
+        .social-links a {
+            color: var(--text-dim);
+            font-size: 1.5rem;
+            margin-left: 30px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        /* Animations */
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        /* Mobile */
+        @media (max-width: 992px) {
+            .project-card {
+                grid-column: span 12;
+            }
+            .project-card:nth-child(even) {
+                margin-top: 50px;
+            }
+            .hero-title {
+                font-size: 4rem;
+            }
+            .contact h2 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .section {
+                padding: 100px 5%;
+            }
+            footer {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            .social-links {
+                margin-top: 20px;
+            }
+            .social-links a {
+                margin: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor Overlay -->
+    <div id="cursor"></div>
+
+    <!-- Scanline Effect -->
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 2px; background: rgba(0, 242, 255, 0.1); z-index: 9998; pointer-events: none; animation: scan 8s linear infinite;"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">XENON</a>
+        <ul class="nav-links">
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#skills">Stack</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div style="font-size: 1.2rem; color: var(--neon-purple); cursor: pointer;"><i class="fas fa-th-large"></i></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <p class="hero-tagline">ARCHITECTURE & APPS</p>
+        <h1 class="hero-title">WEAVING<br>CODE INTO<br>ART.</h1>
+        <div style="max-width: 500px; color: var(--text-dim); margin-top: 20px;">
+            Full-stack developer based in the digital cloud. Specialized in high-performance web systems and immersive design architectures.
+        </div>
+        <div class="scroll-down">SCROLL DOWN —</div>
+    </header>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="section-header">
+            <h2>CAPABILITIES</h2>
+            <h3>The Tech Stack</h3>
+        </div>
+        <div class="skills-container">
+            <div class="skill-box">
+                <h4>Frontend Architecture</h4>
+                <p>React, Vue, WebGL, Next.js, Framer Motion.</p>
+            </div>
+            <div class="skill-box">
+                <h4>Backend Systems</h4>
+                <p>Node.js, Go, Python (Django), Postgres, GraphQL.</p>
+            </div>
+            <div class="skill-box">
+                <h4>Immersive UI/UX</h4>
+                <p>Motion Graphics, 3D Rendering, Interaction Design.</p>
+            </div>
+            <div class="skill-box">
+                <h4>Cloud & DevOps</h4>
+                <p>Docker, AWS, Vercel, CI/CD Automations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="section-header">
+            <h2>SELECTIONS</h2>
+            <h3>Featured Archives</h3>
+        </div>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cyberpunk Interface">
+                </div>
+                <div class="project-info">
+                    <h4>Neural Engine 2.0</h4>
+                    <span class="project-tags">AI INTERFACE / DATA VIZ / REACT</span>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Abstract 3D">
+                </div>
+                <div class="project-info">
+                    <h4>Vortex Analytics</h4>
+                    <span class="project-tags">WEBGL / SAAS / NEXT.JS</span>
+                </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Networking">
+                </div>
+                <div class="project-info">
+                    <h4>Prism Network</h4>
+                    <span class="project-tags">SECURITY / BLOCKCHAIN / GO</span>
+                </div>
+            </div>
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1544256718-348450417b2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Developer Coding">
+                </div>
+                <div class="project-info">
+                    <h4>Eos Ecommerce</h4>
+                    <span class="project-tags">FASHION TECH / DJANGO / STRIPE</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <h2 class="accent-font">LET'S BUILD<br>THE FUTURE</h2>
+        <a href="mailto:hello@xenon.dev" class="contact-btn">GET IN TOUCH</a>
+        <div style="margin-top: 60px; color: var(--text-dim);">
+            Available for remote collaborations and high-impact freelance projects.
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <span class="accent-font" style="font-weight: 700;">&copy; 2026 XENON.DEV</span>
+            <span style="color: var(--text-dim); margin-left: 20px;">BASED IN THE METAVERSE</span>
+        </div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, button, .skill-box').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(3)';
+                cursor.style.background = 'white';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.background = 'var(--neon-blue)';
+            });
+        });
+
+        // Intersection Observer for Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.skill-box, .project-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'all 1s cubic-bezier(0.19, 1, 0.22, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

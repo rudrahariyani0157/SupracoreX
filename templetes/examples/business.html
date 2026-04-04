@@ -1,0 +1,807 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Consulting | Professional Business Strategy</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0d47a1;
+            --secondary-color: #1976d2;
+            --accent-color: #e3f2fd;
+            --dark-color: #1a237e;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background: var(--primary-color);
+            color: var(--white) !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(13, 71, 161, 0.8), rgba(13, 71, 161, 0.8)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            font-weight: 700;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 35px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease 0.2s backwards;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* Generic Section Styles */
+        .section {
+            padding: 100px 8%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(13, 71, 161, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            color: var(--dark-color);
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light-bg);
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 5px solid var(--accent-color);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: var(--dark-color);
+            line-height: 1.2;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--accent-color);
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .testimonial-card i.quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2.5rem;
+            color: rgba(13, 71, 161, 0.1);
+        }
+
+        .testimonial-card p {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--white);
+        }
+
+        .user-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 2px;
+            color: var(--primary-color);
+        }
+
+        .user-info span {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--dark-color);
+            color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .contact-details i {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 20px;
+            color: var(--accent-color);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            color: var(--text-color);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            background: #fdfdfd;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 18px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: #050a1b;
+            color: #a0aec0;
+            padding: 100px 8% 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 30px;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .footer-col.brand-col p {
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.05);
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 15px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+            padding-left: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-image::before {
+                display: none;
+            }
+            .contact-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .contact-details div {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 5%;
+            }
+            .nav-links {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .section {
+                padding: 70px 5%;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Stellar.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Clients</a></li>
+            <li><a href="#contact" class="cta-btn">Get Started</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Driving Exponential Growth Through Strategic Insight</h1>
+            <p>We partner with ambitious organizations to navigate industry shifts, optimize internal operations, and unlock sustainable value in a data-driven world.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-primary">Professional Consultation <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <h2>Our Core Consulting Pillars</h2>
+            <p>Precision-engineered solutions tailored for the evolving global landscape.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Market Intelligence</h3>
+                <p>Advanced data analytics and competitive benchmaring to identify untapped market opportunities and mitigate risks.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-rocket"></i>
+                <h3>Scalable Growth</h3>
+                <p>Developing robust go-to-market strategies and resilient business models designed for long-term scalability.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-microchip"></i>
+                <h3>Digital Transformation</h3>
+                <p>Modernizing legacy infrastructure with cutting-edge cloud, AI, and automation solutions for operational excellence.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-handshake"></i>
+                <h3>Mergers & Acquisitions</h3>
+                <p>Strategic advisory for complex transactions, ensuring seamless integration and maximum stakeholder value.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about" style="background: #f8f9fa;">
+        <div class="about">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Consulting Session">
+            </div>
+            <div class="about-content">
+                <h2>Two Decades of Excellence in Global Strategy</h2>
+                <p>Stellar Consulting is built on the foundation of intellectual rigor and deep industry expertise. We don't just provide recommendations; we engineer outcomes using a proprietary framework that balances innovation with operational stability.</p>
+                <p>Our consultants are former industry leaders, technologists, and economists dedicated to solving the most pressing challenges of the modern enterprise. We operate at the intersection of business strategy and technological evolution.</p>
+                <div style="margin-top: 30px;">
+                    <a href="#" class="btn-primary" style="background: var(--primary-color); color: white;">The Stellar Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials">
+        <div class="section-header">
+            <h2>Trusted by Industry Giants</h2>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <p>"Stellar's approach to digital transformation is unparalleled. They didn't just give us a roadmap; they embedded a culture of innovation that continues to drive results today."</p>
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Executive">
+                    <div>
+                        <h4>James Harrison</h4>
+                        <span>CTO, Global InfraCorp</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <p>"The strategic insights we gained during our market entry into Southeast Asia were invaluable. Their local expertise combined with global vision is a rare find."</p>
+                <div class="user-info">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Executive">
+                    <div>
+                        <h4>Linda Rossi</h4>
+                        <span>SVP Strategy, Omni Retail</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Secure Your Competitive Advantage</h2>
+                <p>Reach out to discuss your specific goals and how our tailored frameworks can deliver measurable impact for your organization.</p>
+                <div class="contact-details">
+                    <div>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+1 (212) 555-8900</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>partnerships@stellarconsult.com</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>750 Madison Ave, New York, NY 10065</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Lead Contact Name</label>
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Corporate Email</label>
+                        <input type="email" placeholder="email@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Inquiry Focus</label>
+                        <input type="text" placeholder="e.g., Growth Strategy, Mergers" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Primary Objectives</label>
+                        <textarea rows="4" placeholder="Briefly describe your current challenge..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" onclick="event.preventDefault(); alert('Consultation Request Logged Successfully.')">Request Briefing</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col brand-col">
+                <h4 style="font-size: 1.8rem; color: var(--white);">Stellar.</h4>
+                <p>Redefining corporate strategy for the digital age through data-backed insights and relentless innovation. Trusted by Fortune 500 leaders worldwide.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Capability</h4>
+                <ul>
+                    <li><a href="#">Corporate Strategy</a></li>
+                    <li><a href="#">Digital Innovation</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Human Capital</a></li>
+                    <li><a href="#">Operations</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Insights</h4>
+                <ul>
+                    <li><a href="#">Annual Reports</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Industry Perspectives</a></li>
+                    <li><a href="#">Podcasts</a></li>
+                    <li><a href="#">White Papers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">Our Purpose</a></li>
+                    <li><a href="#">Global Offices</a></li>
+                    <li><a href="#">Career Pathways</a></li>
+                    <li><a href="#">Media Inquiries</a></li>
+                    <li><a href="#">Legal & Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Stellar Consulting Group International. Built for Excellence.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for Section Reveal
+        const observerOptions = {
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if(navLinks.style.display === 'flex') {
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'white';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 10px 10px rgba(0,0,0,0.1)';
+                
+                navLinks.querySelectorAll('li').forEach(li => {
+                    li.style.margin = '15px 0';
+                });
+            }
+        });
+
+        // Sticky Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '10px 8%';
+                navbar.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.padding = '20px 8%';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
