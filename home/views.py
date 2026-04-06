@@ -59,14 +59,23 @@ def aftersubmit(request):
     return render(request, 'aftersubmit.html')
 
 def dashbord(request):
+    # data = getyourwebsitedata.objects.all()
 
-    data = getyourwebsitedata.objects.all()
-    for user in data:
-        userdata = (user.name, user.phone, user.email)
-    context = {
-        "userdata" : userdata,
-    }
-    return request(render, "dashbord.html", context)
+    # userdata = []
+    # for user in data:
+    #     userdata.append({
+    #         'name': user.name,
+    #         'phone': user.phone,
+    #         'email': user.email
+    #     })
+
+    data = getyourwebsitedata.objects.values(
+        'name', 'email', 'phone', 'budget_range', 'description'
+    )
+
+    return render(request, 'dashbord.html', {'userdata': data})
+
+
 #######################################################
 #######################################################
 #######################################################
@@ -101,3 +110,8 @@ def restaurant(request):
 
 def saas(request):
     return render(request, 'examples/saas.html')
+
+
+
+def coffee_shop(request):
+    return render(request, 'examples/coffee_shop.html')

@@ -24,4 +24,5 @@ urlpatterns = [
     path('realestate/', views.realestate),
     path('restaurant/', views.restaurant),
     path('saas/', views.saas),
+    path('coffee_shop/', views.coffee_shop),
 ]
