@@ -3,6 +3,12 @@ from home.models import getyourwebsitedata
 from home.models import getyourwebsitedata
 from django.shortcuts import render
 
+
+def home(request):
+    data = getyourwebsitedata.objects.all()
+    # print(data)   # 👈 prints in terminal
+    return render(request, 'home.html')
+
 def home(request):
     data = getyourwebsitedata.objects.all()
     # print(data)   # 👈 prints in terminal
