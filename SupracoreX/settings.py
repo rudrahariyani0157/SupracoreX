@@ -75,10 +75,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'SupracoreX.wsgi.application'
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
-import dj_database_url
-import os
+# import dj_database_url
+# import os
 
 # DATABASES = {
 #     'default': dj_database_url.parse(
@@ -87,17 +93,17 @@ import os
 # }
 
 # DATABASE_URL = "postgresql://postgres:supracorexdatabase@db.drkfkidcjvuqpontqlhw.supabase.co:5432/postgres"
-import dj_database_url
-import os
+# import dj_database_url
+# import os
 
-DATABASE_URL = os.environ.get(
-    "DATABASE_URL",
-    "postgresql://postgres:supracorexdatabase@db.drkfkidcjvuqpontqlhw.supabase.co:5432/postgres"
-)
+# DATABASE_URL = os.environ.get(
+#     "DATABASE_URL",
+#     "postgresql://postgres:supracorexdatabase@db.drkfkidcjvuqpontqlhw.supabase.co:5432/postgres"
+# )
 
-DATABASES = {
-    'default': dj_database_url.parse(DATABASE_URL)
-}
+# DATABASES = {
+#     'default': dj_database_url.parse(DATABASE_URL)
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
