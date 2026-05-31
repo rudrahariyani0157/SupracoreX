@@ -74,34 +74,34 @@ def home(request):
 
     return render(request, "home.html")
 
-def getyourwebsite(request):
-    if request.method == "POST":
-        name = request.POST.get("name")
-        print(name)
-        email = request.POST.get("email")
-        phone = request.POST.get("phone")
-        budget_range = request.POST.get("budget")
-        description = request.POST.get("project")
+# def getyourwebsite(request):
+#     if request.method == "POST":
+#         name = request.POST.get("name")
+#         print(name)
+#         email = request.POST.get("email")
+#         phone = request.POST.get("phone")
+#         budget_range = request.POST.get("budget")
+#         description = request.POST.get("project")
 
-        data = getyourwebsitedata(name=name, email=email, phone=phone, budget_range=budget_range, description=description)
-        data.save()
-        return redirect("aftersubmit")
+#         data = getyourwebsitedata(name=name, email=email, phone=phone, budget_range=budget_range, description=description)
+#         data.save()
+#         return redirect("aftersubmit")
 
-        # if find_data(get_gmail_id) == True:
-        #     return render(request, "userexist.html")
+#         # if find_data(get_gmail_id) == True:
+#         #     return render(request, "userexist.html")
 
-        # else:
-        #     appden_data(get_gmail_id, analysis_email, app_password, mail_type) 
-        #     return render(request, 'userappended.html')
+#         # else:
+#         #     appden_data(get_gmail_id, analysis_email, app_password, mail_type) 
+#         #     return render(request, 'userappended.html')
 
-        # Print to terminal
-        # print("Gmail ID:", get_gmail_id)
-        # print("Analysis Email:", analysis_email)
-        # print("App Password:", app_password)
-        # print("Mail Type:", mail_type)
+#         # Print to terminal
+#         # print("Gmail ID:", get_gmail_id)
+#         # print("Analysis Email:", analysis_email)
+#         # print("App Password:", app_password)
+#         # print("Mail Type:", mail_type)
         
 
-    return render(request, 'getyourwebsite.html')
+#     return render(request, 'getyourwebsite.html')
 
 def about(request):
     return render(request, 'about.html')
