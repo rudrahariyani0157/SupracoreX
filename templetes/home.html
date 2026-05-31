@@ -1892,18 +1892,7 @@
 }
 
         /* Mobile */
-        @media (max-width: 768px) {
-                .hero-ctas {
-        justify-content: center; /* Mobile: center */
-        gap: 0.75rem;
-    }
-
-    .hero-ctas .btn {
-        width: 140px;
-        flex: 0 0 auto; /* Prevent flexbox from stretching */
-    }
-
-            
+@media (max-width: 768px) {
 
     html {
         font-size: 14px;
@@ -1948,8 +1937,6 @@
         padding-top: 7rem;
         padding-bottom: 4rem;
         min-height: auto;
-
-        /* Prevent moving background */
         background-attachment: scroll !important;
         background-position: center center !important;
         background-size: cover !important;
@@ -1966,19 +1953,67 @@
         line-height: 1.7;
     }
 
+    /* Hero layout */
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .hero-info {
+        text-align: center;
+    }
+
+    /* Buttons */
     .hero-ctas {
-        flex-direction: column;
-        width: 100%;
-        gap: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
     }
 
     .hero-ctas .btn {
-        width: 100%;
+        width: 130px;
+        padding: 10px 12px;
+        font-size: 14px;
+        text-align: center;
     }
 
+    /* Trust section */
     .hero-trust {
+        display: flex;
         flex-direction: column;
         gap: 1rem;
+        transform: scale(0.9);
+        transform-origin: center;
+    }
+
+    /* Dashboard window */
+    .hero-graphic {
+        display: flex;
+        justify-content: center;
+    }
+
+    .dashboard-window {
+        width: 100%;
+        max-width: 320px;
+        transform: scale(0.8);
+        transform-origin: top center;
+    }
+
+    .window-body {
+        overflow-x: auto;
+    }
+
+    .code-line {
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    /* Hide floating badges on mobile */
+    .floating-badge {
+        display: none;
     }
 
     .services-grid,
@@ -1987,6 +2022,13 @@
     .testimonial-grid,
     .about-stats {
         grid-template-columns: 1fr;
+    }
+
+    .service-card,
+    .pricing-card,
+    .portfolio-card,
+    .testimonial-card {
+        padding: 1.2rem;
     }
 
     .form-row {
@@ -1998,7 +2040,7 @@
     }
 
     .contact-form-card {
-        padding: 2rem;
+        padding: 1.6rem;
         width: 100%;
         overflow: hidden;
     }
@@ -2016,7 +2058,6 @@
         grid-column: span 1;
     }
 
-    /* Better mobile fit */
     img {
         max-width: 100%;
         height: auto;
