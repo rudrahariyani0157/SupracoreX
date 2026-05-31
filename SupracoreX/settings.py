@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3v8zng=%-zhprsr61i(z)wz!(o9*5xog@$2!pkm)egsyj+uj!9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['.onrender.com']     
 ALLOWED_HOSTS = ['.onrender.com', '127.0.0.1']
@@ -44,8 +44,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -75,35 +75,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'SupracoreX.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# internal_url = "postgresql://supracorex_user:sQTXavNhlbfJmrnGCog8jyJwICxJxV81@dpg-d767rhnfte5s73eeb62g-a/supracorex"
-# external_url = "postgresql://supracorex_user:sQTXavNhlbfJmrnGCog8jyJwICxJxV81@dpg-d767rhnfte5s73eeb62g-a.oregon-postgres.render.com/supracorex"
 
 
 import dj_database_url
 import os
 
+# DATABASES = {
+#     'default': dj_database_url.parse(
+#         os.environ.get("DATABASE_URL", "postgresql://postgres:supracorexdatabase@db.drkfkidcjvuqpontqlhw.supabase.co:5432/postgres")
+#     )
+# }
 DATABASES = {
-    'default': dj_database_url.parse(
-        os.environ.get("DATABASE_URL", "postgresql://postgres:supracorexdatabase@db.drkfkidcjvuqpontqlhw.supabase.co:5432/postgres")
-    )
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
-
-
-
-# Password validation
-# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -131,6 +115,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
