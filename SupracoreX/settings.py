@@ -94,7 +94,7 @@ import os
 
 DATABASES = {
     'default': dj_database_url.parse(
-        os.environ.get("DATABASE_URL", "postgresql://postgres:[supracorexdatabase]@db.drkfkidcjvuqpontqlhw.supabase.co:5432/postgres")
+        os.environ.get("DATABASE_URL", "postgresql://postgres:supracorexdatabase@db.drkfkidcjvuqpontqlhw.supabase.co:5432/postgres")
     )
 }
 
