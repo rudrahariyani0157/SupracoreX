@@ -40,6 +40,7 @@ def login_view(request):
 
         if user:
             login(request, user)
+            print("login is successfull")
             return redirect("dashboard")
         else:
             return render(request, "login.html", {"error": "Invalid credentials"})
