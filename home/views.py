@@ -12,7 +12,8 @@ from .models import Contact
 # supabase_client.py
 url = "https://drkfkidcjvuqpontqlhw.supabase.co"
 
-key = "sb_publishable_nTnCDAoUaIpUjrQRbt0f6A_Ylns5oYM"
+# key = "sb_publishable_nTnCDAoUaIpUjrQRbt0f6A_Ylns5oYM"
+key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRya2ZraWRjanZ1cXBvbnRxbGh3Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MDIwNTA4NywiZXhwIjoyMDk1NzgxMDg3fQ.TjA-XA6ky1OYrcu0Ih7XCB0CwrQbGEtRZZHZeWpGC8Q"
 supabase = create_client(url, key)
 
 # def test_supabase(request):
