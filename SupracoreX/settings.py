@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3v8zng=%-zhprsr61i(z)wz!(o9*5xog@$2!pkm)egsyj+uj!9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ['.onrender.com']     
 ALLOWED_HOSTS = ['.onrender.com', '127.0.0.1']
@@ -94,7 +94,7 @@ import os
 
 DATABASES = {
     'default': dj_database_url.parse(
-        os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3")
+        os.environ.get("DATABASE_URL", "postgresql://postgres:[YOUR-PASSWORD]@db.drkfkidcjvuqpontqlhw.supabase.co:5432/postgres")
     )
 }
 
