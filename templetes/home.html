@@ -2934,7 +2934,7 @@
 
                 <!-- Form Card -->
                 <div class="glass-card contact-form-card reveal reveal-delay-2">
-                    <form id="agency-contact-form" method="POST" action="">
+                    <form id="agency-contact-form" method="POST" action="{% url 'home' %}">
                         <!-- Django CSRF Token support -->
                         {% csrf_token %}
 

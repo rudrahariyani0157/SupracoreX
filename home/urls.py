@@ -4,6 +4,10 @@ from home import views
 
 urlpatterns = [
     path('', views.home, name='home'),
+    # path("test/", views.test_supabase),
+    path("login/", views.login_view, name="login"),
+    path("logout/", views.logout_view, name="logout"),
+    path("dashboard/", views.dashboard, name="dashboard"),
     path('getyourwebsite/', views.getyourwebsite, name='getyourwebsite'),
     path('aftersubmit/', views.aftersubmit, name='aftersubmit'),
     path('about/', views.about, name='about'),
@@ -12,7 +16,6 @@ urlpatterns = [
     path('pricing/', views.pricing, name='pricing'),
     path('service/', views.service, name='service'),
     path('workedwith/', views.workedwith, name='workedwith'),
-    path('dashbord/', views.dashbord, name='dashbord'),
 
     path('automotive/', views.automotive),
     path('business/', views.business),

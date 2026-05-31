@@ -1,4 +1,4 @@
 from django.contrib import admin
-from home.models import getyourwebsitedata
+from home.models import Contact
 
-admin.site.register(getyourwebsitedata)
+admin.site.register(Contact)

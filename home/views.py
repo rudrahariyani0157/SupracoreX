@@ -1,18 +1,78 @@
 from django.shortcuts import render, redirect
-from home.models import getyourwebsitedata
-from home.models import getyourwebsitedata
+from home.models import Contact
 from django.shortcuts import render
+from supabase import create_client
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from .models import Contact
+
+
+# supabase_client.py
+url = "https://drkfkidcjvuqpontqlhw.supabase.co"
+
+key = "sb_publishable_nTnCDAoUaIpUjrQRbt0f6A_Ylns5oYM"
+supabase = create_client(url, key)
+
+# def test_supabase(request):
+#     try:
+#         result = supabase.table("database").select("*").execute()
+
+#         return JsonResponse({
+#             "success": True,
+#             "data": result.data
+#         })
+
+#     except Exception as e:
+#         return JsonResponse({
+#             "success": False,
+#             "error": str(e)
+#         })
+
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=username, password=password)
+
+        if user:
+            login(request, user)
+            return redirect("dashboard")
+        else:
+            return render(request, "login.html", {"error": "Invalid credentials"})
+
+    return render(request, "login.html")
+
+
+def logout_view(request):
+    logout(request)
+    return redirect("login")
+
+@login_required(login_url='login')
+def dashboard(request):
+    result = supabase.table("database").select("*").execute()
+    data = result.data
+
+    return render(request, "dashboard.html", {"userdata": data})
 
 
 def home(request):
-    data = getyourwebsitedata.objects.all()
-    # print(data)   # 👈 prints in terminal
-    return render(request, 'home.html')
+    if request.method == "POST":
+        result = supabase.table("database").insert({
+            "name": request.POST.get("name"),
+            "email": request.POST.get("email"),
+            "phone": request.POST.get("phone"),
+            "message": request.POST.get("message")
+        }).execute()
 
-def home(request):
-    data = getyourwebsitedata.objects.all()
-    # print(data)   # 👈 prints in terminal
-    return render(request, 'home.html')
+        print("SUCCESS:", result.data)
+
+        # 🔥 IMPORTANT: redirect after POST (PREVENT CSRF + duplicate submit issues)
+        return redirect("home")
+
+    return render(request, "home.html")
 
 def getyourwebsite(request):
     if request.method == "POST":
@@ -63,24 +123,6 @@ def workedwith(request):
 
 def aftersubmit(request):
     return render(request, 'aftersubmit.html')
-
-def dashbord(request):
-    # data = getyourwebsitedata.objects.all()
-
-    # userdata = []
-    # for user in data:
-    #     userdata.append({
-    #         'name': user.name,
-    #         'phone': user.phone,
-    #         'email': user.email
-    #     })
-
-    data = getyourwebsitedata.objects.values(
-        'name', 'email', 'phone', 'budget_range', 'description'
-    )
-
-    return render(request, 'dashbord.html', {'userdata': data})
-
 
 #######################################################
 #######################################################
