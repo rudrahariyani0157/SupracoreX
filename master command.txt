@@ -2,3 +2,9 @@ git add .
 git commit -m "message"
 git pull origin main --rebase
 git push origin main
+
+
+git rm --cached .env
+git add .gitignore
+git commit -m "Remove .env from tracking"
+git push origin main
