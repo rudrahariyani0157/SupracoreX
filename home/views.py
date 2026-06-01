@@ -76,6 +76,9 @@ def home(request):
 
     return render(request, "home.html")
 
+def terms(request):
+    return render(request, 'terms.html')
+
 # def getyourwebsite(request):
 #     if request.method == "POST":
 #         name = request.POST.get("name")
