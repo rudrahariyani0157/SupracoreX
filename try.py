@@ -1,5 +1,7 @@
 import time
 
-for i in range(10, -1, -1):
-    print(f"\r{i}", end="", flush=True)
+for i in range(100, -1, -1):
+    print(f"\r{i:03d}", end="", flush=True)
     time.sleep(1)
+
+print()
