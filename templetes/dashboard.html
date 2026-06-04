@@ -95,9 +95,11 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Business name</th>
             <th>Email</th>
             <th>Mobile Number</th>
             <th>Description</th>
+            <th>Date</th>
         </tr>
     </thead>
 
@@ -105,9 +107,11 @@
         {% for user in userdata %}
         <tr>
             <td>{{ user.name }}</td>
+            <td>{{ user.companyname }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.phone }}</td>
             <td class="desc">{{ user.message }}</td>
+            <td>{{ user.date }}</td>
         </tr>
         {% endfor %}
     </tbody>

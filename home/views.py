@@ -63,12 +63,19 @@ def dashboard(request):
 
 
 def home(request):
+    from datetime import datetime
+
+    today = datetime.now().strftime("%Y/%m/%d")
+
     if request.method == "POST":
         result = supabase.table("database").insert({
             "name": request.POST.get("name"),
+            "companyname": request.POST.get("companyname"),
             "email": request.POST.get("email"),
             "phone": request.POST.get("phone"),
-            "message": request.POST.get("message")
+            "message": request.POST.get("message"),
+            "date": today
+            
         }).execute()
 
         print("SUCCESS:", result.data)
