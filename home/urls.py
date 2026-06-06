@@ -18,6 +18,8 @@ urlpatterns = [
     path('workedwith/', views.workedwith, name='workedwith'),
     path('terms/', views.terms, name='terms'),
 
+    path("ping/", views.ping, name='ping'),
+
     path('automotive/', views.automotive),
     path('business/', views.business),
     path('ecommerce/', views.ecommerce),

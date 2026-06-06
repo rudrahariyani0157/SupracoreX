@@ -135,6 +135,9 @@ def service(request):
 def workedwith(request):
     return render(request, 'workedwith.html')
 
+def ping(request):
+    return JsonResponse({"status": "ok"})
+
 def aftersubmit(request):
     return render(request, 'aftersubmit.html')
 
