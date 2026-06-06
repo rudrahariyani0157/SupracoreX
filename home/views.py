@@ -145,6 +145,9 @@ def aftersubmit(request):
 #######################################################
 #######################################################
 
+def AshishRangadiya(request):
+    return render(request, 'examples/AshishRangadiya.html')
+
 
 def automotive(request):
     return render(request, 'examples/automotive.html')
@@ -164,8 +167,7 @@ def gym(request):
 def healthcare(request):
     return render(request, 'examples/healthcare.html')
 
-def portfolio_example(request):
-    return render(request, 'examples/portfolio_example.html')
+
 
 def realestate(request):
     return render(request, 'examples/realestate.html')

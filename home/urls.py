@@ -26,7 +26,7 @@ urlpatterns = [
     path('education/', views.education),
     path('gym/', views.gym),
     path('healthcare/', views.healthcare),
-    path('portfolio_example/', views.portfolio_example),
+    path('AshishRangadiya/', views.AshishRangadiya),
     path('realestate/', views.realestate),
     path('restaurant/', views.restaurant),
     path('saas/', views.saas),
