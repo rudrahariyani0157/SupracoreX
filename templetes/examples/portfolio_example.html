@@ -1,5 +1,4 @@
-Here’s a complete, valid HTML5 structure with semantic <section> elements, including a header, navigation, main content, and footer.
-Html<!DOCTYPE html>
+{% load static %}<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,10 +14,10 @@ SECTION 1 : HERO + NAVBAR
 ========================= -->
 
 <nav class="navbar">
-    <div class="logo">
-        Ashish<span>Rangadiya</span>
-    </div>
-
+<div class="logo">
+    <img src="{% static 'image/logo.jpeg' %}" alt="Logo">
+    <span class="brand-name">Ashish <span>Rangadiya</span></span>
+</div>
 ```
 <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -109,9 +108,11 @@ SECTION 1 : HERO + NAVBAR
 
         <div class="teacher-card">
 
-            <img
+            <!-- <img
             src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900"
-            alt="Teacher">
+            alt="Teacher"> -->
+            
+            <img src="{% static 'image/sir.jpeg' %}" alt="Teacher">
 
             <div class="floating-card card1">
                 M.Sc Maths
@@ -193,6 +194,29 @@ SECTION 1 : HERO + NAVBAR
     .nav-links a:hover{
     color:var(--blue);
     }
+
+    /* new */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.brand-name span {
+    color: #2563eb; /* highlight last name */
+}
+    /* end */
 
     .hero{
     position:relative;
@@ -2865,35 +2889,35 @@ SECTION 9 : LEARNING GALLERY
     <div class="gallery-grid">
 
         <div class="gallery-item large">
-            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1200" alt="">
+            <img src="{% static 'image/img1.jpeg' %}" alt="">
             <div class="gallery-overlay">
                 <h3>Interactive Classroom</h3>
             </div>
         </div>
 
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200" alt="">
+            <img src="{% static 'image/img2.jpeg' %}" alt="">
             <div class="gallery-overlay">
                 <h3>Student Discussion</h3>
             </div>
         </div>
 
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?w=1200" alt="">
+            <img src="{% static 'image/img3.jpeg' %}" alt="">
             <div class="gallery-overlay">
                 <h3>Mathematics Learning</h3>
             </div>
         </div>
 
         <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?w=1200" alt="">
+            <img src="{% static 'image/img4.jpeg' %}" alt="">
             <div class="gallery-overlay">
                 <h3>Exam Preparation</h3>
             </div>
         </div>
 
         <div class="gallery-item large">
-            <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1200" alt="">
+            <img src="{% static 'image/img5.jpeg' %}" alt="">
             <div class="gallery-overlay">
                 <h3>Academic Excellence</h3>
             </div>
